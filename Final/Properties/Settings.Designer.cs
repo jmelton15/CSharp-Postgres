@@ -26,7 +26,7 @@ namespace Final.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Host=localhost;Database=employees;Username=postgres;Password=Im4Buddy2010@8")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Host=localhost;Database=employees;Username=postgres;Password=")]
         public string employeesConnectionString {
             get {
                 return ((string)(this["employeesConnectionString"]));
