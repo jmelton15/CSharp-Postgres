@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="employeesModel.Store" Provider="Npgsql" ProviderManifestToken="13.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'employees.public.job_details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="job_details">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="job_ttl" />
+    </Key>
+    <Property Name="id" Type="int4" Nullable="false" />
+    <Property Name="job_ttl" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="work_location" Type="varchar" MaxLength="25" />
+    <Property Name="yrs_in_job" Type="int4" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_nm" Type="varchar" MaxLength="8000" Nullable="false" />
+    <Property Name="last_nm" Type="varchar" MaxLength="8000" Nullable="false" />
+    <Property Name="dtm" Type="timestamp" />
+    <Property Name="chg_uid" Type="int4" />
+    <Property Name="chg_dtm" Type="timestamp" />
+    <Property Name="stat_cd" Type="bpchar" MaxLength="1" />
+  </EntityType>
+  <EntityContainer Name="employeesModelStoreContainer">
+    <EntitySet Name="users" EntityType="Self.users" Schema="public" store:Type="Tables" />
+    <EntitySet Name="job_details" EntityType="Self.job_details" store:Type="Tables" store:Schema="public">
+      <DefiningQuery>SELECT "job_details"."id", "job_details"."job_ttl", "job_details"."work_location", "job_details"."yrs_in_job" FROM "public"."job_details" AS "job_details"</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

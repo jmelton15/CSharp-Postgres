@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="employeesModel.Store" Provider="Npgsql" ProviderManifestToken="13.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'employees.public.job_details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="job_details">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="job_ttl" />
+          </Key>
+          <Property Name="id" Type="int4" Nullable="false" />
+          <Property Name="job_ttl" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="work_location" Type="varchar" MaxLength="25" />
+          <Property Name="yrs_in_job" Type="int4" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_nm" Type="varchar" MaxLength="8000" Nullable="false" />
+          <Property Name="last_nm" Type="varchar" MaxLength="8000" Nullable="false" />
+          <Property Name="dtm" Type="timestamp" />
+          <Property Name="chg_uid" Type="int4" />
+          <Property Name="chg_dtm" Type="timestamp" />
+          <Property Name="stat_cd" Type="bpchar" MaxLength="1" />
+        </EntityType>
+        <EntityContainer Name="employeesModelStoreContainer">
+          <EntitySet Name="users" EntityType="Self.users" Schema="public" store:Type="Tables" />
+          <EntitySet Name="job_details" EntityType="Self.job_details" store:Type="Tables" store:Schema="public">
+            <DefiningQuery>SELECT "job_details"."id", "job_details"."job_ttl", "job_details"."work_location", "job_details"."yrs_in_job" FROM "public"."job_details" AS "job_details"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="employeesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_nm" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="last_nm" Type="String" MaxLength="8000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dtm" Type="DateTime" Precision="6" />
+          <Property Name="chg_uid" Type="Int32" />
+          <Property Name="chg_dtm" Type="DateTime" Precision="6" />
+          <Property Name="stat_cd" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="job_details">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="job_ttl" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="job_ttl" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="work_location" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="yrs_in_job" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="employeesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="job_details" EntityType="Self.job_details" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="employeesModelStoreContainer" CdmEntityContainer="employeesEntities">
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="employeesModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="first_nm" ColumnName="first_nm" />
+                <ScalarProperty Name="last_nm" ColumnName="last_nm" />
+                <ScalarProperty Name="dtm" ColumnName="dtm" />
+                <ScalarProperty Name="chg_uid" ColumnName="chg_uid" />
+                <ScalarProperty Name="chg_dtm" ColumnName="chg_dtm" />
+                <ScalarProperty Name="stat_cd" ColumnName="stat_cd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="job_details">
+            <EntityTypeMapping TypeName="employeesModel.job_details">
+              <MappingFragment StoreEntitySet="job_details">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="job_ttl" ColumnName="job_ttl" />
+                <ScalarProperty Name="work_location" ColumnName="work_location" />
+                <ScalarProperty Name="yrs_in_job" ColumnName="yrs_in_job" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,37 @@
+Welcome To The About/Help Page!
+Below You Will Find How To Use The Form To Add, Search, Delete, Update, Undelete, and Purge Records!
+
+To Search for an Employee By Name:
+	1.) Type a word/name/part of a name in the Textbox located under the Label that says "Search"
+	2.) Once filled in, click the button to the right that says "Search"
+	3.) Alternatively, You can use the File Menu Dropdown and click "Open"
+
+To Add a new Record:
+	1.) Fill In All Of The Textboxes On The Form.
+	2.) Once filled in, click the Button that says "Add"
+	3.) Alternatively, You can use the File Menu Dropdown and click "New"
+
+To Update a Records Information:
+	1.) Select a record from the table by clicking anywhere on the record you want.
+	2.) You will know you selected something When all of the Textboxes are filled in - This filled in information is the current record.
+	3.) Once you have selected a record, feel free to change any or all of the information in the textboxes
+	4.) Once you have changed the textboxes you wanted to update, click the button to the right that says "Update"
+	5.) Alternatively, You can use the File Menu Dropdown and click "Save" or you can click the Edit Menu Dropdown and click "Save"
+
+To Delete a Record Temporarily:
+	1.) Select a record from the table by clicking anywhere on the record you want.
+	2.) You will know you selected something When all of the Textboxes are filled in - This filled in information is the current record.
+	3.) Once you have selected a Record and Are happy with what you Selected, click the button below that says "Delete"
+	4.) Alternatively, You can use the File Menu Dropdown and click "Delete"
+
+To UnDelete The Most Recently Deleted Record:
+	1.) Find the Button on the form that says "UnDelete" and click it
+	2.) A Messagebox should pop up stating that the record has been UnDeleted.
+	3.) Alternatively, You can use the File Menu Dropdown and click "UnDelete"
+	4.) This works like the trash on your Operating System, so you can use this as many times as needed for any number of previously deleted records
+
+To Purge, or Permanently Delete Records:
+	1.) Find the Button on the form that says "Purge" and click it
+	2.) A Messagebox should pop up asking if you are sure you want to permanently delete the records in the trash, if you are sure, click "Yes"
+	3.) Another Messagebox should pop up stating that the records have been purged
+	4.) Alternatively, You can use the File Menu Dropdown and click "Purge"

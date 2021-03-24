@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="employeesModelStoreContainer" CdmEntityContainer="employeesEntities">
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="employeesModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="first_nm" ColumnName="first_nm" />
+          <ScalarProperty Name="last_nm" ColumnName="last_nm" />
+          <ScalarProperty Name="dtm" ColumnName="dtm" />
+          <ScalarProperty Name="chg_uid" ColumnName="chg_uid" />
+          <ScalarProperty Name="chg_dtm" ColumnName="chg_dtm" />
+          <ScalarProperty Name="stat_cd" ColumnName="stat_cd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="job_details">
+      <EntityTypeMapping TypeName="employeesModel.job_details">
+        <MappingFragment StoreEntitySet="job_details">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="job_ttl" ColumnName="job_ttl" />
+          <ScalarProperty Name="work_location" ColumnName="work_location" />
+          <ScalarProperty Name="yrs_in_job" ColumnName="yrs_in_job" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
